@@ -24,6 +24,7 @@ class Controller
      * Controller constructor.
      * @param $router
      */
+
     public function __construct($router)
     {
         $this->router = $router;
