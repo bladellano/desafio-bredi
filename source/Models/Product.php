@@ -51,8 +51,8 @@ class Product extends DataLayer
      */
     public function moneyDB($param):string
     {
-        $source = array('.', ',');
-        $replace = array('', '.');
+        $source = ['.', ','];
+        $replace = ['', '.'];
         $value = str_replace($source, $replace, $param);
         return $value; //retorna o valor formatado para gravar no banco
     }
