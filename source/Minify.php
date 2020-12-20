@@ -19,5 +19,6 @@ $minCSS->minify(dirname(__DIR__,1)."/views/assets/style.min.css");
 $minJS = new \MatthiasMullie\Minify\JS();
 $minJS->add(dirname(__DIR__,1)."/views/assets/js/jquery.js");
 $minJS->add(dirname(__DIR__,1)."/views/assets/js/bootstrap.min.js");
+$minJS->add(dirname(__DIR__,1)."/views/assets/js/jquery.mask.min.js");
 
 $minJS->minify(dirname(__DIR__,1)."/views/assets/script.min.js");

@@ -61,6 +61,8 @@ class Product extends Controller
      */
     public function update($data):void
     {
+        $data = filter_var_array($data,FILTER_SANITIZE_STRIPPED);
+
         $product = (new \Source\Models\Product())->findById($data['id']);
 
         $product->nome = $data['nome'];

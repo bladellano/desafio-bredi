@@ -51,6 +51,7 @@ class Web extends Controller
     public function edit($data):void
     {
         $categories = (new Category())->find()->fetch(true);
+
         $product = (new \Source\Models\Product())->findById($data['id']);
 
         echo $this->view->render("theme/create",[

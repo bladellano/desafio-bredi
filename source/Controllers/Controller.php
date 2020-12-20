@@ -19,6 +19,7 @@ class Controller
      * @var
      */
     protected $router;
+
     /**
      * Controller constructor.
      * @param $router
