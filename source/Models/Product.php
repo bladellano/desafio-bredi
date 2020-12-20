@@ -66,4 +66,26 @@ class Product extends DataLayer
         return number_format($param,'2',',','.');
     }
 
+    /**
+     * @return $this
+     */
+    public function getCategory(): Product
+    {
+        $this->categoria = (new Category())->findById($this->categoria_id)->data()->titulo;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getProductsWithCategories(): array
+    {
+        $products = $this->find()->fetch(true);
+        foreach ($products as &$p) {
+            $p->categoria = (new Category())->findById($p->categoria_id)->titulo;
+            $p->preco = $this->money( $p->preco );
+        }
+        return $products;
+    }
+
 }

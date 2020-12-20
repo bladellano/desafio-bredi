@@ -66,18 +66,11 @@ class Web extends Controller
      */
     public function products():void
     {
-
         $products = (new \Source\Models\Product());
-        $result = $products->find()->fetch(true);
-
-        foreach ($result as &$p) {
-            $p->categoria = (new Category())->findById($p->categoria_id)->titulo;
-            $p->preco = $products->money( $p->preco );
-        }
 
         echo $this->view->render("theme/products",[
             "title"=>"Lista de Produtos",
-            "products"=>$result
+            "products"=>$products->getProductsWithCategories()
         ]);
 
     }
