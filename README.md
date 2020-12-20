@@ -18,6 +18,13 @@ Aplicação que realiza CRUD de produtos relacionado com categorias.
 * League Plates - Componente que trabalhar com criação de template nativo do Php;
 * Matthiasmullie Minify - Para minificar as folhas de estilo e script javascript.
 
+#### Libs
+* jQuery JavaScript Library v3.5.1
+* jQuery Mask Plugin v1.14.16
+
+### Framework Front-end
+* Bootstrap 4
+
 #### Instalação
 A instalação do sistema pode ser feita seguindo os seguintes passos:
 > ATENÇAO: Os passos para instalação descritos nesta documentação, assumem que a aplicação rodará em uma estação Windows e que contenha todas as dependências instaladas e configuradas.
