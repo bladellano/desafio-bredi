@@ -88,4 +88,24 @@ class Product extends DataLayer
         return $products;
     }
 
+    /**
+     * @param int $page
+     * @param int $itensPerPage
+     * @return array
+     */
+    public function getPage(int $page = 1, int $itensPerPage = 3):array
+    {
+        $start = ($page - 1) * $itensPerPage;
+
+        $result = $this->find()->limit($itensPerPage)->offset($start)->fetch(true);
+
+        $resultTotal = $this->find()->count();
+
+        return [
+            'data' => $result,
+            'total' =>  $resultTotal,
+            'pages' => ceil( $resultTotal / $itensPerPage),
+        ];
+    }
+
 }

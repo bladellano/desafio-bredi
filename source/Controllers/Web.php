@@ -6,6 +6,8 @@ namespace Source\Controllers;
 
 use Source\Models\Category;
 
+use CoffeeCode\Paginator\Paginator;
+
 /**
  * Class Web
  * @package Source\Controllers
@@ -64,13 +66,29 @@ class Web extends Controller
     /**
      *
      */
-    public function products():void
+    public function products($data):void
     {
         $products = (new \Source\Models\Product());
 
+        $page = filter_input(INPUT_GET,"page",FILTER_SANITIZE_STRIPPED);
+
+        if($page == null) $page = 1;
+
+        $pagination = $products->getPage( $page );
+
+        $pages = [];
+
+        for ($x = 0; $x <  $pagination['pages']; $x++) {
+            array_push($pages, [
+                'href' => site().'/produtos?' . http_build_query(['page' => $x + 1,]),
+                'text' => $x + 1
+            ]);
+        }
+
         echo $this->view->render("theme/products",[
             "title"=>"Lista de Produtos",
-            "products"=>$products->getProductsWithCategories()
+            "products"=>$pagination['data'],
+            "pages"=>$pages
         ]);
 
     }

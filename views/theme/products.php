@@ -36,3 +36,17 @@
     </tbody>
 </table>
 
+<p>
+
+<ul class="pagination d-flex justify-content-center">
+
+    <?php foreach ($pages as $p) {?>
+        <li class="page-item" ">
+            <a class="page-link" href="<?=$p['href']?>">
+                <?=$p['text']?>
+            </a>
+        </li>
+
+    <?php } ?>
+</ul>
+</p>
