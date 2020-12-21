@@ -99,6 +99,12 @@ class Product extends DataLayer
 
         $result = $this->find()->limit($itensPerPage)->offset($start)->fetch(true);
 
+        /* Pegando categoria e tratando o campo preço */
+        foreach ($result as &$p) {
+            $p->categoria = (new Category())->findById($p->categoria_id)->titulo;
+            $p->preco = $this->money( $p->preco );
+        }
+
         $resultTotal = $this->find()->count();
 
         return [
