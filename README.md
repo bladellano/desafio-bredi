@@ -21,6 +21,7 @@ Aplicação que realiza CRUD de produtos relacionado com categorias.
 #### Libs
 * jQuery JavaScript Library v3.5.1
 * jQuery Mask Plugin v1.14.16
+* jQuery UI - v1.12.1
 
 ### Framework Front-end
 * Bootstrap 4
