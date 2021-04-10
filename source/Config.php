@@ -9,13 +9,13 @@ define("SITE",[
     "desc"=>"Desenvolvendo aplicação para o desafio",
     "domain"=>"desafiobredi.local.com",
     "locale"=>"pt_BR",
-    "root"=>"http://localhost/desafio-bredi"
+    "root"=>"http://127.0.0.1/desafio-bredi"
 ]);
 
 /**
  * SITE MINIFY
  */
-if($_SERVER['SERVER_NAME']=="localhost"){
+if($_SERVER['SERVER_NAME']=="127.0.0.1"){
     require __DIR__."/Minify.php";
 }
 
@@ -25,11 +25,11 @@ if($_SERVER['SERVER_NAME']=="localhost"){
 
 define("DATA_LAYER_CONFIG", [
     "driver" => "mysql",
-    "host" => "localhost",
+    "host" => "127.0.0.1",
     "port" => "3306",
     "dbname" => "db_bredi",
     "username" => "root",
-    "passwd" => "root",
+    "passwd" => "",
     "options" => [
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

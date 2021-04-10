@@ -93,7 +93,7 @@ class Product extends DataLayer
      * @param int $itensPerPage
      * @return array
      */
-    public function getPage(int $page = 1, int $itensPerPage = 3):array
+    public function getPage(int $page = 1, int $itensPerPage = 10):array
     {
         $start = ($page - 1) * $itensPerPage;
 

@@ -39,8 +39,9 @@ class Web extends Controller
      */
     public function create():void
     {
-        $categories = (new Category())->find()->fetch(true);
-
+        $categories = (new Category())
+        ->find()->fetch(true);
+        
         echo $this->view->render("theme/create", [
             "title" => "Cadastro de Produto",
             "categories" => $categories
@@ -63,9 +64,6 @@ class Web extends Controller
         ]);
     }
 
-    /**
-     *
-     */
     public function products($data):void
     {
         $products = (new \Source\Models\Product());
@@ -74,15 +72,14 @@ class Web extends Controller
 
         if($page == null) $page = 1;
 
-        $pagination = $products->getPage( $page );
-
-        $pages = [];
+        $pagination = $products->getPage( $page, 3 );
 
         for ($x = 0; $x <  $pagination['pages']; $x++) {
-            array_push($pages, [
+         
+            $pages[] = [
                 'href' => site().'/produtos?' . http_build_query(['page' => $x + 1,]),
                 'text' => $x + 1
-            ]);
+            ];
         }
 
         echo $this->view->render("theme/products",[
@@ -92,9 +89,7 @@ class Web extends Controller
         ]);
 
     }
-    /**
-     * @param $data
-     */
+
     public function error($data):void
     {
         $error = filter_var($data["errcode"],FILTER_VALIDATE_INT);
